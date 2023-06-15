@@ -1,7 +1,15 @@
+import { useState } from "react";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseList from "./components/ExpenseList";
+import MonthlyExpenseSum from "./components/MonthlyExpenseSum";
+
 function App() {
+  const [first, setfirst] = useState(false);
   return (
     <div className="App">
-      <h1>My Expenses Web App</h1>
+      <ExpenseForm first={first} />
+      <ExpenseList />
+      <MonthlyExpenseSum />
     </div>
   );
 }

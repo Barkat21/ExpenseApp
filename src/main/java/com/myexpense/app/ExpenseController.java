@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ExpenseController {
     @Autowired
@@ -28,6 +28,12 @@ public class ExpenseController {
         List<Expense> expenses = expenseService.getAllExpenses();
         System.out.println(expenses);
         return ResponseEntity.ok(expenses);
+    }
+
+    @DeleteMapping("/expense/{expenseId}")
+    public ResponseEntity<String> deleteExpense(@PathVariable("expenseId") int expenseId) {
+        expenseService.deleteExpense(expenseId);
+        return ResponseEntity.ok("Expense deleted successfully");
     }
 
     @GetMapping("/date/{expenseDate}")
@@ -69,6 +75,24 @@ public class ExpenseController {
         Map<String, Map<String, Double>> monthlySumByCategory = expenseService.getMonthlyExpenseSumByCategory();
         return ResponseEntity.ok(monthlySumByCategory);
     }
+
+    @PutMapping("/expense/{expenseId}")
+    public ResponseEntity<Expense> updateExpense(@PathVariable("expenseId") int expenseId, @RequestBody Expense updatedExpense) {
+        Expense expense = expenseService.updateExpense(expenseId, updatedExpense);
+        return ResponseEntity.ok(expense);
+    }
+
+    @GetMapping("/expense/{expenseId}")
+    public ResponseEntity<Expense> getExpenseById(@PathVariable("expenseId") int expenseId ) {
+        Expense expense = expenseService.getExpenseById(expenseId);
+
+        if (expense == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(expense);
+        }
+    }
+
 
 }
 

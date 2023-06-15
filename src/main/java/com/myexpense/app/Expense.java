@@ -29,7 +29,4 @@ public class Expense implements Serializable {
 
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate expenseDate;
-
-
-
 }

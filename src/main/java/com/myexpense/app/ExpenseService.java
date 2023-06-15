@@ -11,6 +11,7 @@ import java.time.YearMonth;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 @Service
@@ -62,7 +63,10 @@ public class ExpenseService {
         }
         return  dateWiseSum;
     }
-
+    public Expense getExpenseById(int id) {
+        Optional<Expense> expense = expenseRepository.findById(id);
+        return expense.orElse(null);
+    }
     public Map<String, Double> getMonthlyExpenseSum() {
         List<Expense> expenses = expenseRepository.findAll();
         Map<String, Double> monthlySum = new HashMap<>();
@@ -113,6 +117,20 @@ public class ExpenseService {
     }
 
 
+    public void deleteExpense(int expenseId) {
+        expenseRepository.deleteById(expenseId);
+    }
+
+    public Expense updateExpense(int expenseId, Expense updatedExpense) {
+        Expense expense = expenseRepository.findById(expenseId)
+                .orElseThrow(() -> new RuntimeException("Expense not found"));
+
+        expense.setCategory(updatedExpense.getCategory());
+        expense.setAmount(updatedExpense.getAmount());
+        expense.setExpenseDate(updatedExpense.getExpenseDate());
+
+        return expenseRepository.save(expense);
+    }
 
 }
 
