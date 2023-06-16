@@ -47,6 +47,12 @@ form {
 }
 
 /* More styles for other components */
+.ExpenseContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-items: center; */
+}
 
 .expense-card {
   border: 1px solid #ccc;
@@ -54,6 +60,7 @@ form {
   padding: 16px;
   margin-bottom: 16px;
   background-color: #f9f9f9;
+  width: 10%;
 }
 
 .expense-card h3 {

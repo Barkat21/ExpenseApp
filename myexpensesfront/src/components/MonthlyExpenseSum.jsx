@@ -40,17 +40,20 @@ const MonthlyExpenseSum = () => {
   return (
     <div>
       <h2>Monthly Expense Sum</h2>
-      {Object.entries(monthlySums).length !== 0 ? (
-        Object.entries(monthlySums).map(([monthKey, amount]) => (
-          <div key={monthKey} className="expense-card">
-            <h3>{getMonthName(monthKey)}</h3>
-            <p>Month: {monthKey}</p>
-            <p>Total Expense: {amount}</p>
-          </div>
-        ))
-      ) : (
-        <p>No monthly expense data available.</p>
-      )}
+      <div className="ExpenseContainer">
+        {Object.entries(monthlySums).length !== 0 ? (
+          Object.entries(monthlySums).map(([monthKey, amount]) => (
+            <div key={monthKey} className="expense-card">
+              <h3>{getMonthName(monthKey)}</h3>
+              <p>Month: {monthKey}</p>
+              <p>Total Expense: {amount}</p>
+              <button>View Weekly</button>
+            </div>
+          ))
+        ) : (
+          <p>No monthly expense data available.</p>
+        )}
+      </div>
     </div>
   );
 };

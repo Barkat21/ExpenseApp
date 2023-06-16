@@ -42,16 +42,18 @@ const ExpenseList = () => {
 
   return (
     <div>
-      <h2>All Expenses</h2>
-      {expenses.map((expense) => (
-        <div key={expense.id} className="expense-card">
-          <h3>{expense.category}</h3>
-          <p>Amount: {expense.amount}</p>
-          <p>Date: {expense.expenseDate}</p>
-          <button onClick={() => handleEdit(expense.id)}>Edit</button>
-          <button onClick={() => handleDelete(expense.id)}>Delete</button>
-        </div>
-      ))}
+      <h2>Recent Expenses</h2>
+      <div className="ExpenseContainer">
+        {expenses.map((expense) => (
+          <div key={expense.id} className="expense-card">
+            <h3>{expense.category}</h3>
+            <p>Amount: {expense.amount}</p>
+            <p>Date: {expense.expenseDate}</p>
+            <button onClick={() => handleEdit(expense.id)}>Edit</button>
+            <button onClick={() => handleDelete(expense.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
       {editExpenseId && (
         <EditExpense expenseId={editExpenseId} onClose={handleCloseEdit} />
       )}

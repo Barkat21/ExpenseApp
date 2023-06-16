@@ -7,7 +7,7 @@ function App() {
   const [first, setfirst] = useState(false);
   return (
     <div className="App">
-      <ExpenseForm first={first} />
+      <ExpenseForm />
       <ExpenseList />
       <MonthlyExpenseSum />
     </div>
