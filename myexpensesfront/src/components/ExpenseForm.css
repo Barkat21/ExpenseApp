@@ -1,14 +1,22 @@
 /* ExpenseForm.css */
+* {
+  margin: 0;
+  padding: 0;
+}
 
+.App {
+  background-color: #f8f8f8;
+  margin: 0;
+}
 .expense-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  /* padding: 20px; */
+  width: 70%;
+  margin: auto;
+  padding: 20px;
   background-color: #f8f8f8;
   border-radius: 8px;
-  padding: auto;
 }
 
 .expense-form h2 {
@@ -19,7 +27,8 @@
 }
 
 .expense-form label {
-  /* display: block; */
+  display: inline;
+  margin-right: 10px;
   margin-bottom: 8px;
 }
 
@@ -29,17 +38,37 @@
   width: 50%;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  margin-bottom: 16px;
+  border: 0px solid #ccc;
+  margin-bottom: 10px;
 }
 
-.expense-form button[type="submit"] {
+button[type="submit"] {
   background-color: #4caf50;
   color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+button[type="delete"] {
+  background-color: red;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button[type="edit"] {
+  background-color: blue;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px, 10px;
 }
 
 form {
@@ -51,6 +80,8 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  width: 70%;
+  margin: auto;
   /* align-items: center; */
 }
 
@@ -60,7 +91,9 @@ form {
   padding: 16px;
   margin-bottom: 16px;
   background-color: #f9f9f9;
-  width: 10%;
+  width: 25%;
+  align-items: center;
+  text-align: center;
 }
 
 .expense-card h3 {
@@ -70,4 +103,46 @@ form {
 
 .expense-card p {
   margin: 8px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.navbar_logo {
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar_links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  list-style: none;
+  text-decoration: none;
+}
+
+.navbar_link {
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.navbar_link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.navbar_link:hover {
+  color: #555;
+}
+.navbar__link {
+  text-decoration: none;
 }

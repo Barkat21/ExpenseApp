@@ -39,7 +39,7 @@ const MonthlyExpenseSum = () => {
 
   return (
     <div>
-      <h2>Monthly Expense Sum</h2>
+      <h2 className="expense-form">Monthly Expense Sum</h2>
       <div className="ExpenseContainer">
         {Object.entries(monthlySums).length !== 0 ? (
           Object.entries(monthlySums).map(([monthKey, amount]) => (
@@ -47,7 +47,8 @@ const MonthlyExpenseSum = () => {
               <h3>{getMonthName(monthKey)}</h3>
               <p>Month: {monthKey}</p>
               <p>Total Expense: {amount}</p>
-              <button>View Weekly</button>
+              <button type="submit">View Category wise</button>
+              <button type="submit">View By Date</button>
             </div>
           ))
         ) : (
